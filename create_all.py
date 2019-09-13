@@ -15,9 +15,6 @@ else:
 label_map_file="labelmap_face.prototxt"#4
 dbdir="lmdb"
 
-resize_height=300
-resize_width=300
-
 def create_list():
     datasets=["trainval","test"]
     for dataset in datasets:
@@ -61,11 +58,9 @@ def create_data():
         cmd = "{}/build/tools/convert_annoset" \
             " --anno_type=detection" \
             " --label_map_file={}" \
-            " --resize_height={}" \
-            " --resize_width={}" \
             " --encode_type=jpg --encoded"\
             " {} {} {}" \
-            .format(caffe_root,label_map_file,resize_height, resize_width,data_dir, list_file,db)
+            .format(caffe_root,label_map_file,data_dir, list_file,db)
         print(cmd)
         process = subprocess.Popen(cmd.split(), stdout=subprocess.PIPE)
         output = process.communicate()[0]
