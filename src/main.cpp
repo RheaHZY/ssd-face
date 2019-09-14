@@ -1,6 +1,7 @@
 #include "mrdir.h"
 #include "mropencv.h"
 #include "FaceDetector.h"
+using namespace ssdface;
 
 int testcamera(int cameraindex=0)
 {
